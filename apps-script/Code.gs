@@ -18,6 +18,8 @@ const UTM_FIELDS = [
   "device_platform"
 ];
 
+const FACEBOOK_FIELDS = ["fbclid", "fbc", "fbp"];
+
 const HEADERS = [
   "created_at",
   "order_id",
@@ -25,7 +27,8 @@ const HEADERS = [
   "phone",
   ...UTM_FIELDS,
   "landing_page",
-  "referrer"
+  "referrer",
+  ...FACEBOOK_FIELDS
 ];
 
 function doGet() {
@@ -56,6 +59,9 @@ function doPost(event) {
       if (sheet.getLastRow() === 0) {
         sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
         sheet.setFrozenRows(1);
+      } else {
+        const facebookStartColumn = HEADERS.length - FACEBOOK_FIELDS.length + 1;
+        sheet.getRange(1, facebookStartColumn, 1, FACEBOOK_FIELDS.length).setValues([FACEBOOK_FIELDS]);
       }
 
       orderId = Utilities.getUuid();
@@ -65,7 +71,8 @@ function doPost(event) {
         phone,
         ...UTM_FIELDS.map((field) => cleanText_(parameters[field], 500)),
         cleanText_(parameters.landing_page, 2000),
-        cleanText_(parameters.referrer, 2000)
+        cleanText_(parameters.referrer, 2000),
+        ...FACEBOOK_FIELDS.map((field) => cleanText_(parameters[field], 500))
       ];
       const row = sheet.getLastRow() + 1;
       sheet.getRange(row, 1).setValue(new Date());
@@ -76,7 +83,7 @@ function doPost(event) {
       lock.releaseLock();
     }
 
-    return resultPage_({ type: "dermocare-order-result", requestId, orderId, ok: true });
+    return resultPage_({ type: "dermocare-order-result", requestId, ok: true });
   } catch (error) {
     console.error(error);
     return resultPage_({

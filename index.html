@@ -2253,6 +2253,9 @@
                 <input type="hidden" name="utm_term">
                 <input type="hidden" name="utm_placement">
                 <input type="hidden" name="device_platform">
+                <input type="hidden" name="fbclid">
+                <input type="hidden" name="fbc">
+                <input type="hidden" name="fbp">
                 <input type="hidden" name="landing_page">
                 <input type="hidden" name="referrer">
                 <button class="button button-primary submit-button" type="submit"><svg class="icon" aria-hidden="true"><use href="#icon-cart"></use></svg><span class="button-label">मेरा Order Book करें</span><span class="button-spinner" aria-hidden="true"></span></button>
@@ -2434,20 +2437,46 @@
             }
         }
 
-        const attribution = readStoredAttribution();
-        const query = new URLSearchParams(window.location.search);
-        UTM_KEYS.forEach((key) => {
-            if (query.has(key) && query.get(key)) attribution[key] = query.get(key);
-            const field = form.elements.namedItem(key);
-            field.value = attribution[key] || "";
-        });
-        try {
-            sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(attribution));
-        } catch {
-            // Continue without cross-page attribution persistence when storage is unavailable.
+        function setHidden(name, value) {
+            const field = form.elements.namedItem(name);
+            if (field) field.value = value || "";
         }
-        form.elements.namedItem("landing_page").value = window.location.href;
-        form.elements.namedItem("referrer").value = document.referrer;
+
+        function cookie(name) {
+            const match = document.cookie.match(new RegExp("(?:^|;\\s*)" + name + "=([^;]*)"));
+            if (!match) return "";
+            try {
+                return decodeURIComponent(match[1]);
+            } catch {
+                return match[1];
+            }
+        }
+
+        function capture() {
+            const params = new URLSearchParams(window.location.search);
+            const attribution = readStoredAttribution();
+
+            UTM_KEYS.forEach((key) => {
+                const value = params.get(key) || attribution[key] || "";
+                setHidden(key, value);
+                if (params.get(key)) attribution[key] = params.get(key);
+            });
+
+            try {
+                sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(attribution));
+            } catch {
+                // Continue without cross-page attribution persistence when storage is unavailable.
+            }
+
+            const fbclid = params.get("fbclid") || "";
+            setHidden("fbclid", fbclid);
+            setHidden("fbc", cookie("_fbc") || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : ""));
+            setHidden("fbp", cookie("_fbp"));
+            setHidden("landing_page", window.location.href);
+            setHidden("referrer", document.referrer);
+        }
+
+        capture();
 
         function resetSubmitButton() {
             window.clearTimeout(responseTimeout);
@@ -2459,21 +2488,42 @@
             submitLabel.textContent = "मेरा Order Book करें";
         }
 
-        phoneInput.addEventListener("input", () => {
-            phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+        nameInput.addEventListener("input", () => {
+            nameInput.value = nameInput.value
+                .replace(/[^A-Za-z\u0900-\u097F\u0A80-\u0AFF ]/g, "")
+                .replace(/\s{2,}/g, " ")
+                .replace(/^\s+/, "");
+            errorMessage.hidden = true;
         });
+
+        phoneInput.addEventListener("input", () => {
+            let value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+            if (value && !/^[6-9]/.test(value)) value = value.slice(1);
+            phoneInput.value = value;
+            errorMessage.hidden = true;
+        });
+
+        function validName(value) {
+            return /^[A-Za-z\u0900-\u097F\u0A80-\u0AFF]+(?: [A-Za-z\u0900-\u097F\u0A80-\u0AFF]+)*$/.test(value.trim());
+        }
+
+        function validPhone(value) {
+            return /^[6-9][0-9]{9}$/.test(value);
+        }
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
             errorMessage.hidden = true;
             statusMessage.textContent = "";
 
-            if (!nameInput.value.trim() || !/^[0-9]{10}$/.test(phoneInput.value)) {
-                errorMessage.textContent = !nameInput.value.trim()
+            const nameOk = validName(nameInput.value);
+            const phoneOk = validPhone(phoneInput.value);
+            if (!nameOk || !phoneOk || !form.reportValidity()) {
+                errorMessage.textContent = !nameOk
                     ? "कृपया अपना नाम दर्ज करें।"
-                    : "कृपया 10 अंकों का मोबाइल नंबर दर्ज करें।";
+                    : "कृपया 6 से 9 से शुरू होने वाला 10 अंकों का मोबाइल नंबर दर्ज करें।";
                 errorMessage.hidden = false;
-                (!nameInput.value.trim() ? nameInput : phoneInput).focus();
+                (!nameOk ? nameInput : phoneInput).focus();
                 return;
             }
 
@@ -2484,6 +2534,7 @@
 
             pendingRequestId = window.crypto?.randomUUID?.()
                 || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+            capture();
             form.elements.namedItem("request_id").value = pendingRequestId;
             form.action = GOOGLE_APPS_SCRIPT_URL;
             form.classList.add("is-loading");
@@ -2493,11 +2544,23 @@
             submitButton.classList.add("is-loading");
             submitLabel.textContent = "कृपया प्रतीक्षा करें…";
             statusMessage.textContent = "आपका order सुरक्षित रूप से भेजा जा रहा है…";
+            const thankYouUrl = new URL("thankyou.html", window.location.href);
+            UTM_KEYS.forEach((key) => {
+                const value = form.elements.namedItem(key).value;
+                if (value) thankYouUrl.searchParams.set(key, value);
+            });
+            if (typeof window.fbq === "function") {
+                window.fbq("track", "Lead", { content_name: "DERMOCARE Skin Care Kit" }, { eventID: pendingRequestId });
+            }
             responseTimeout = window.setTimeout(() => {
                 resetSubmitButton();
                 statusMessage.textContent = "अभी confirmation नहीं मिला। दोबारा भेजने से पहले order status जाँच लें।";
             }, 20000);
             HTMLFormElement.prototype.submit.call(form);
+            window.setTimeout(() => {
+                window.clearTimeout(responseTimeout);
+                window.location.assign(thankYouUrl.href);
+            }, 1000);
         });
 
         window.addEventListener("message", (event) => {
@@ -2509,16 +2572,7 @@
             resetSubmitButton();
             if (!result.ok) {
                 statusMessage.textContent = result.message || "Order save नहीं हो सका। कृपया कुछ देर बाद फिर कोशिश करें।";
-                return;
             }
-
-            const thankYouUrl = new URL("thankyou.html", window.location.href);
-            UTM_KEYS.forEach((key) => {
-                const value = form.elements.namedItem(key).value;
-                if (value) thankYouUrl.searchParams.set(key, value);
-            });
-            if (result.orderId) thankYouUrl.searchParams.set("order_id", result.orderId);
-            window.setTimeout(() => window.location.assign(thankYouUrl.href), 1500);
         });
 
         document.querySelectorAll(".review-avatar").forEach((image) => {
