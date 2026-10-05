@@ -2502,8 +2502,8 @@
 
         window.addEventListener("message", (event) => {
             const result = event.data;
-            if (event.source !== responseFrame.contentWindow
-                || result?.type !== "dermocare-order-result"
+            if (result?.type !== "dermocare-order-result"
+                || !pendingRequestId
                 || result.requestId !== pendingRequestId) return;
 
             resetSubmitButton();
