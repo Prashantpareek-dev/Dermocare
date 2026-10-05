@@ -2518,7 +2518,7 @@
                 if (value) thankYouUrl.searchParams.set(key, value);
             });
             if (result.orderId) thankYouUrl.searchParams.set("order_id", result.orderId);
-            window.location.assign(thankYouUrl.href);
+            window.setTimeout(() => window.location.assign(thankYouUrl.href), 1500);
         });
 
         document.querySelectorAll(".review-avatar").forEach((image) => {
