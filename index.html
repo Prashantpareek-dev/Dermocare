@@ -1,0 +1,2354 @@
+<!doctype html>
+<html lang="hi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFF8F2">
+    <meta name="description"
+        content="DERMOCARE Skin Care Kit: त्वचा की नियमित देखभाल के लिए 3-step routine. सही जानकारी और dermatologist की सलाह को प्राथमिकता दें।">
+    <title>DERMOCARE | त्वचा की नियमित देखभाल</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --orange: #EF6C00;
+            --peach: #FFE0B2;
+            --paper: #FFF8F2;
+            --ink: #2C2C2C;
+            --green: #388E3C;
+            --white: #FFFFFF;
+            --font: "Halant", "Noto Serif Devanagari", serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 16px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--peach);
+            color: var(--ink);
+            font-family: var(--font);
+            font-size: 18px;
+            line-height: 1.55;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .page-shell {
+            width: min(100%, 450px);
+            margin-inline: auto;
+            overflow: hidden;
+            background: var(--paper);
+            box-shadow: 0 0 0 1px rgba(239, 108, 0, .12), 0 28px 80px rgba(44, 44, 44, .12);
+        }
+
+        .section-pad {
+            padding: 38px 24px;
+            position: relative;
+        }
+
+        .topline {
+            height: 60px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--paper);
+        }
+
+        .wordmark {
+            color: var(--ink);
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-decoration: none;
+        }
+
+        .wordmark span {
+            color: var(--orange);
+        }
+
+        .top-cta {
+            color: var(--orange);
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .top-cta span {
+            display: inline-block;
+            transition: transform .2s ease;
+        }
+
+        .top-cta:hover span {
+            transform: translate(3px, -3px);
+        }
+
+        .hero {
+            /* padding-top: 12px; */
+            background: var(--paper);
+        }
+
+        .image-cut {
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .image-cut img {
+            transition: transform .6s cubic-bezier(.2, .75, .25, 1), filter .3s ease;
+        }
+
+        .image-cut:hover img {
+            transform: scale(1.045);
+            filter: saturate(1.08);
+        }
+
+        .image-cut-hero {
+            position: relative;
+            height: 245px;
+            clip-path: polygon(0 0, 100% 0, 100% 86%, 85% 100%, 0 93%);
+        }
+
+        .image-cut-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(44, 44, 44, .56), transparent 64%);
+            pointer-events: none;
+        }
+
+        .photo-caption {
+            position: absolute;
+            z-index: 1;
+            bottom: 25px;
+            left: 18px;
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        .hero-copy {
+            padding-top: 18px;
+        }
+
+        .eyebrow,
+        .product-no,
+        .offer-label {
+            margin: 0;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        .eyebrow {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: var(--orange);
+        }
+
+        .eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 0 4px var(--peach);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(29px, 8vw, 36px);
+            line-height: 1.33;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 18px;
+            color: var(--orange);
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .button {
+            min-height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 0;
+            border-radius: 4px;
+            padding: 12px 18px;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.35;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 rgba(44, 44, 44, .12);
+        }
+
+        .button:active {
+            transform: translateY(1px) scale(.99);
+            box-shadow: none;
+        }
+
+        .button-primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .button-primary:hover {
+            background: var(--green);
+        }
+
+        .hero-note,
+        .fine-print {
+            margin: 13px 0 0;
+            color: var(--ink);
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: .82;
+        }
+
+        .hero-stamp {
+            position: absolute;
+            right: 23px;
+            top: 235px;
+            width: 64px;
+            height: 64px;
+            border: 1px solid var(--orange);
+            border-radius: 50%;
+            display: grid;
+            align-content: center;
+            justify-items: center;
+            background: var(--peach);
+            color: var(--orange);
+            transform: rotate(10deg);
+        }
+
+        .hero-stamp span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+        }
+
+        .hero-stamp b {
+            font-size: 23px;
+            line-height: 1;
+        }
+
+        .pain {
+            background: var(--peach);
+            padding: 38px 24px 0px 24px;
+        }
+
+        .pain h2,
+        .ingredients h2,
+        .quality h2,
+        .compare h2,
+        .experience h2,
+        .reviews h2,
+        .offer h2,
+        .final-cta h2,
+        .order h2,
+        .faq h2 {
+            margin-bottom: 12px;
+            font-size: 27px;
+            line-height: 1.38;
+        }
+
+        .section-lead {
+            margin-bottom: 20px;
+            color: var(--green);
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .pain-list {
+            margin-inline: -24px;
+            border-top: 1px solid rgba(44, 44, 44, .23);
+        }
+
+        .pain-list img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .pain-row {
+            min-height: 77px;
+            display: grid;
+            grid-template-columns: 25px 54px 1fr 18px;
+            gap: 10px;
+            align-items: center;
+            border-bottom: 1px solid rgba(44, 44, 44, .23);
+            transition: background .2s ease, padding .2s ease;
+        }
+
+        .pain-row:hover {
+            padding-inline: 5px;
+            background: rgba(255, 248, 242, .5);
+        }
+
+        .pain-index {
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .pain-photo {
+            width: 48px;
+            height: 48px;
+            clip-path: polygon(0 0, 87% 0, 100% 78%, 17% 100%);
+        }
+
+        .pain-row h3 {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.3;
+        }
+
+        .row-arrow {
+            color: var(--orange);
+            transition: transform .2s ease;
+        }
+
+        .pain-row:hover .row-arrow {
+            transform: translate(2px, -2px);
+        }
+
+        .kit {
+            /* padding-top: 12px; */
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .kit .product-no {
+            color: var(--peach);
+        }
+
+        .kit h2 {
+            margin: 12px 80px 5px 0;
+            color: var(--white);
+            font-size: 33px;
+            line-height: 1.12;
+        }
+
+        .kit-subtitle {
+            margin-bottom: 17px;
+            color: var(--peach);
+            font-size: 20px;
+        }
+
+        .kit-intro {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .kit-orbit {
+            position: absolute;
+            right: 19px;
+            top: 35px;
+            width: 73px;
+            height: 73px;
+            display: grid;
+            place-content: center;
+            border: 1px solid var(--peach);
+            border-radius: 50%;
+            color: var(--peach);
+            font-size: 30px;
+            font-weight: 700;
+            line-height: .9;
+            text-align: center;
+            transform: rotate(9deg);
+        }
+
+        .kit-orbit span {
+            font-size: 9px;
+            letter-spacing: .12em;
+        }
+
+        .product-stack {
+            display: grid;
+            gap: 12px;
+            margin-top: 21px;
+        }
+
+        .product-row {
+            display: grid;
+            grid-template-columns: 112px 1fr;
+            min-height: 119px;
+            background: var(--paper);
+            color: var(--ink);
+            transition: transform .25s ease;
+        }
+
+        .product-row:hover {
+            transform: translateX(5px);
+        }
+
+        .product-image {
+            height: 100%;
+            min-height: 119px;
+            clip-path: polygon(0 0, 100% 0, 88% 100%, 0 90%);
+        }
+
+        .product-copy {
+            align-self: center;
+            padding: 11px 10px;
+        }
+
+        .product-no {
+            font-size: 10px;
+        }
+
+        .product-copy h4 {
+            margin: 5px 0 4px;
+            color: var(--orange);
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .product-copy p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.35;
+        }
+
+        .ingredients {
+            padding: 38px 20px 34px;
+            background-color: #FFFDF4;
+            background-image: repeating-linear-gradient(135deg, rgba(56, 104, 47, .025) 0 1px, transparent 1px 13px);
+        }
+
+        .ingredients h2 {
+            width: min(100%, 350px);
+            margin: 0 auto 14px;
+            padding: 13px 16px 11px;
+            clip-path: polygon(2% 8%, 96% 0, 100% 82%, 92% 95%, 8% 100%, 0 20%);
+            background: var(--green);
+            color: var(--white);
+            font-size: 29px;
+            line-height: 1.18;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .ingredients h2 span {
+            color: #FFD52C;
+        }
+
+        .ingredients .section-lead {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto 25px;
+            padding: 5px 12px 3px;
+            background: #FFF0A6;
+            color: #173B22;
+            font-size: 17px;
+            line-height: 1.35;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .ingredient-hero {
+            position: relative;
+            height: 196px;
+            margin: 19px 0 16px;
+            clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 90%);
+        }
+
+        .ingredient-hero::after {
+            content: "";
+            position: absolute;
+            inset: 40% 0 0;
+            background: linear-gradient(0deg, rgba(44, 44, 44, .64), transparent);
+        }
+
+        .ingredient-hero span {
+            position: absolute;
+            z-index: 1;
+            bottom: 18px;
+            left: 17px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .ingredient-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            padding-top: 9px;
+        }
+
+        .ingredient-item {
+            position: relative;
+            min-width: 0;
+            padding: 10px 6px 12px;
+            border: 1px solid rgba(239, 108, 0, .18);
+            border-radius: 38px 38px 29px 29px;
+            background: rgba(255, 255, 255, .82);
+            box-shadow: 0 5px 13px rgba(90, 94, 41, .09);
+            text-align: center;
+        }
+
+        .ingredient-photo {
+            width: 100%;
+            height: 82px;
+            margin: 0 auto 7px;
+            border-radius: 50%;
+            background: #FFF8E5;
+        }
+
+        .ingredient-photo img {
+            border-radius: inherit;
+        }
+
+        .ingredient-item>span {
+            display: block;
+            margin-bottom: 6px;
+            border-radius: 999px;
+            background: #FFD52C;
+            color: #1C291C;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.65;
+        }
+
+        .ingredient-item p {
+            margin: 0;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .ingredient-item b {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            width: 34px;
+            height: 34px;
+            transform: translateX(-50%);
+            border: 2px solid #FFFDF4;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .ingredient-caption {
+            margin: 16px auto 12px;
+            padding: 7px 12px;
+            border: 1px solid var(--orange);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .75);
+            color: var(--orange);
+            font-size: 17px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .ingredient-note {
+            margin: 0 auto 12px;
+            color: #173B22;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .ingredient-disclaimer {
+            margin: 0;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: #EAF1D3;
+            color: #26351E;
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .quality {
+            padding: 28px 20px 24px;
+            background: #FFF9ED;
+            color: var(--ink);
+        }
+
+        .quality-kicker {
+            display: table;
+            margin: 0 0 12px;
+            padding: 3px 10px;
+            border: 1px solid rgba(239, 108, 0, .45);
+            border-radius: 999px;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .quality-copy {
+            padding: 0 2px 16px;
+        }
+
+        .quality h2 {
+            margin-bottom: 10px;
+            font-size: 27px;
+            line-height: 1.22;
+        }
+
+        .quality h2 span {
+            display: block;
+            color: var(--orange);
+        }
+
+        .quality-copy p {
+            max-width: 38ch;
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .quality-marks {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+        }
+
+        .quality-marks span {
+            min-width: 0;
+            min-height: 150px;
+            display: grid;
+            grid-template-rows: 58px auto auto;
+            align-content: start;
+            justify-items: center;
+            gap: 5px;
+            padding: 11px 5px 9px;
+            border: 1px solid rgba(239, 108, 0, .22);
+            border-radius: 15px;
+            background: var(--white);
+            color: var(--ink);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(92, 65, 24, .08);
+        }
+
+        .quality-marks span:hover {
+            transform: translateY(-3px);
+        }
+
+        .quality-marks img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .quality-marks b {
+            width: 100%;
+            padding: 2px 1px;
+            border-radius: 999px;
+            background: var(--green);
+            color: var(--white);
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .quality-marks .mark-iso b {
+            background: #0866B5;
+        }
+
+        .quality-marks .mark-fssai b {
+            background: var(--orange);
+        }
+
+        .quality-marks .mark-lab b {
+            background: #008A9A;
+        }
+
+        .quality-marks small {
+            font-size: 11px;
+            line-height: 1.3;
+            text-wrap: balance;
+        }
+
+        .quality-note {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 12px;
+            align-items: center;
+            margin-top: 13px;
+            padding: 12px;
+            border: 1px solid rgba(239, 108, 0, .15);
+            border-radius: 16px;
+            background: #FFF0D9;
+        }
+
+        .quality-note span {
+            width: 40px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            clip-path: polygon(50% 0, 100% 18%, 94% 72%, 50% 100%, 6% 72%, 0 18%);
+            background: var(--orange);
+            color: var(--white);
+            font-family: Arial, sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .quality-note p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .compare {
+            padding: 36px 16px 32px;
+            background:
+                radial-gradient(ellipse at 0 4%, rgba(56, 142, 60, .08), transparent 32%),
+                var(--paper);
+        }
+
+        .compare h2 {
+            margin: 0 auto 8px;
+            font-size: 27px;
+            line-height: 1.18;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .compare h2 span {
+            display: block;
+            color: var(--orange);
+        }
+
+        .compare-disclaimer {
+            margin: 0 auto 20px;
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .compare-head,
+        .compare-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
+            gap: 4px;
+        }
+
+        .compare-head {
+            align-items: end;
+            margin-bottom: 9px;
+        }
+
+        .compare-head h3 {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.2;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .compare-head h3:last-child {
+            color: var(--orange);
+        }
+
+        .compare-head small {
+            display: block;
+            margin-top: 4px;
+            color: var(--ink);
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .compare-row {
+            align-items: stretch;
+            margin-top: 5px;
+        }
+
+        .compare-cell {
+            min-width: 0;
+            min-height: 58px;
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr) 18px;
+            gap: 4px;
+            align-items: center;
+            padding: 5px;
+            border-radius: 12px;
+        }
+
+        .compare-left-cell {
+            background: #E9E9E9;
+        }
+
+        .compare-right-cell {
+            border: 1px solid rgba(239, 108, 0, .18);
+            background: #FFF3D9;
+        }
+
+        .compare-thumb {
+            width: 34px;
+            height: 34px;
+            overflow: hidden;
+            border-radius: 50%;
+            background-color: var(--white);
+        }
+
+        .compare-problem {
+            background-image: url("./Image/problem.avif");
+            background-size: 200% 300%;
+        }
+
+        .compare-problem-1 { background-position: 0 0; }
+        .compare-problem-2 { background-position: 100% 0; }
+        .compare-problem-3 { background-position: 0 50%; }
+        .compare-problem-4 { background-position: 100% 50%; }
+        .compare-problem-5 { background-position: 0 100%; }
+        .compare-problem-6 { background-position: 100% 100%; }
+
+        .compare-product img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .compare-copy {
+            min-width: 0;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+
+        .compare-status {
+            width: 18px;
+            height: 18px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--white);
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .compare-no {
+            background: #E95562;
+        }
+
+        .compare-yes {
+            background: #389A32;
+        }
+
+        .compare-arrow {
+            width: 24px;
+            height: 24px;
+            align-self: center;
+            display: grid;
+            place-items: center;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            background: var(--green);
+            color: var(--white);
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        @media (max-width: 360px) {
+            .compare {
+                padding-inline: 12px;
+            }
+
+            .compare-head h3 {
+                font-size: 12px;
+            }
+
+            .compare-cell {
+                grid-template-columns: 31px minmax(0, 1fr) 16px;
+                gap: 4px;
+                padding: 4px;
+            }
+
+            .compare-thumb {
+                width: 31px;
+                height: 31px;
+            }
+
+            .compare-copy {
+                font-size: 11px;
+            }
+
+            .compare-status {
+                width: 16px;
+                height: 16px;
+                font-size: 13px;
+            }
+        }
+
+        .experience {
+            min-height: 335px;
+            display: flex;
+            align-items: flex-end;
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .experience-photo {
+            position: absolute;
+            inset: 0 0 0 30%;
+            clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
+            opacity: .42;
+        }
+
+        .experience::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--green) 4%, rgba(56, 142, 60, .92) 43%, rgba(56, 142, 60, .18));
+        }
+
+        .experience-copy {
+            z-index: 1;
+            position: relative;
+            max-width: 330px;
+        }
+
+        .experience h2 {
+            max-width: 310px;
+        }
+
+        .experience-copy p {
+            margin-bottom: 8px;
+        }
+
+        .experience-intro {
+            color: var(--peach);
+            font-weight: 700;
+        }
+
+        .experience ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .experience li {
+            margin-top: 8px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .experience li::before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            color: var(--peach);
+            font-weight: 700;
+        }
+
+        .experience-mark {
+            z-index: 1;
+            position: absolute;
+            right: 18px;
+            top: 25px;
+            color: var(--peach);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+            text-align: right;
+            transform: rotate(8deg);
+        }
+
+        .experience-mark span {
+            font-size: 9px;
+            letter-spacing: .08em;
+        }
+
+        .reviews {
+            background: var(--peach);
+        }
+
+        .review-banner {
+            position: relative;
+            height: 160px;
+            margin: -38px -24px 23px;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 8% 100%);
+        }
+
+        .review-banner::after {
+            content: "";
+            position: absolute;
+            inset: 25% 0 0;
+            background: linear-gradient(0deg, rgba(44, 44, 44, .56), transparent);
+        }
+
+        .review-banner span {
+            position: absolute;
+            z-index: 1;
+            bottom: 17px;
+            left: 24px;
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .sample-warning {
+            padding: 10px 12px;
+            border-left: 3px solid var(--orange);
+            background: var(--paper);
+            font-size: 14px;
+        }
+
+        .review-quote {
+            display: grid;
+            grid-template-columns: 82px minmax(0, 1fr);
+            align-items: start;
+            gap: 12px;
+            margin-top: 12px;
+            padding: 13px;
+            border: 1px solid rgba(56, 142, 60, .13);
+            border-radius: 13px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFFDF6 72%, #F2F7E9 100%);
+            box-shadow: 0 5px 16px rgba(63, 75, 45, .09);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .review-quote:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 20px rgba(63, 75, 45, .14);
+        }
+
+        .review-avatar-wrap {
+            position: relative;
+            width: 82px;
+            height: 82px;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border: 3px solid #E2EFD7;
+            border-radius: 50%;
+            background: #E2EFD7;
+            color: #315D29;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .review-avatar {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+        }
+
+        .review-avatar[hidden] {
+            display: none;
+        }
+
+        .review-content {
+            min-width: 0;
+        }
+
+        .review-topline,
+        .review-byline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px 8px;
+        }
+
+        .review-topline {
+            margin-bottom: 4px;
+        }
+
+        .stars {
+            color: #F59A00;
+            letter-spacing: .02em;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .review-sample {
+            padding: 3px 7px;
+            border-radius: 999px;
+            background: #EAF1D3;
+            color: #315D29;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .review-quote blockquote {
+            margin: 5px 0 8px;
+            font-size: 14px;
+            line-height: 1.42;
+        }
+
+        .review-byline {
+            justify-content: flex-start;
+            gap: 3px 10px;
+        }
+
+        .review-quote p {
+            margin: 0;
+            color: var(--green);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .review-location {
+            color: #57584E;
+            font-size: 11px;
+        }
+
+        .review-product {
+            display: block;
+            margin-top: 4px;
+            color: #57584E;
+            font-size: 10px;
+        }
+
+        @media (max-width: 360px) {
+            .review-quote {
+                grid-template-columns: 66px minmax(0, 1fr);
+                gap: 9px;
+                padding: 10px;
+            }
+
+            .review-avatar-wrap {
+                width: 66px;
+                height: 66px;
+            }
+
+            .review-quote blockquote {
+                font-size: 13px;
+            }
+        }
+
+        .review-disclaimer {
+            margin: 15px 0 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .offer {
+            padding-top: 0;
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .offer-photo {
+            height: 180px;
+            margin: 0 -24px 22px;
+            clip-path: polygon(0 0, 100% 0, 100% 86%, 12% 100%);
+        }
+
+        .offer-copy {
+            text-align: center;
+        }
+
+        .offer-label {
+            color: var(--peach);
+            font-size: 16px;
+        }
+
+        .offer h2 {
+            margin: 6px 0;
+            font-size: 30px;
+        }
+
+        .offer h2 em {
+            display: block;
+            color: var(--peach);
+            font-style: normal;
+            font-size: 35px;
+        }
+
+        .offer-subtitle {
+            margin-bottom: 13px;
+            font-size: 18px;
+        }
+
+        .offer-perks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 14px 0;
+            text-align: left;
+        }
+
+        .offer-perks span {
+            min-height: 43px;
+            display: flex;
+            align-items: center;
+            padding: 7px 9px;
+            background: var(--paper);
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .offer-perks span:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .offer-note {
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .button-dark {
+            width: 100%;
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .button-dark:hover {
+            background: var(--green);
+        }
+
+        .offer .fine-print {
+            color: var(--white);
+        }
+
+        .final-cta {
+            overflow: hidden;
+            background: var(--paper);
+        }
+
+        .final-image {
+            width: 130px;
+            height: 146px;
+            float: right;
+            margin: 0 -24px 13px 13px;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 85%);
+        }
+
+        .final-cta h2 {
+            clear: both;
+            font-size: 29px;
+        }
+
+        .final-cta>p {
+            margin-bottom: 15px;
+        }
+
+        .final-cta h3 {
+            margin: 0 0 4px;
+            color: var(--green);
+            font-size: 19px;
+        }
+
+        .cta-offer {
+            display: block;
+            margin-bottom: 13px;
+            color: var(--orange);
+        }
+
+        .final-cta .button {
+            width: 100%;
+        }
+
+        .cta-foot {
+            margin: 10px 0 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .order {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .order h2 {
+            color: var(--white);
+        }
+
+        .order h2 {
+            margin-bottom: 3px;
+        }
+
+        .order-lead {
+            margin-bottom: 17px;
+            color: var(--peach);
+            font-weight: 700;
+        }
+
+        #order-form {
+            display: grid;
+            gap: 8px;
+            padding: 16px;
+            border: 2px solid var(--orange);
+            background: var(--green);
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        #order-form.is-loading {
+            border-color: var(--peach);
+            box-shadow: 0 0 0 3px rgba(255, 224, 178, .35);
+        }
+
+        #order-form label {
+            margin-top: 4px;
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        #order-form label span {
+            color: var(--orange);
+        }
+
+        #order-form input {
+            width: 100%;
+            min-height: 50px;
+            border: 1px solid rgba(44, 44, 44, .35);
+            border-radius: 3px;
+            padding: 10px 12px;
+            background: var(--paper);
+            color: var(--ink);
+            outline: none;
+            transition: border .2s ease, box-shadow .2s ease;
+        }
+
+        #order-form input:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(56, 142, 60, .18);
+        }
+
+        #order-form input::placeholder {
+            color: rgba(44, 44, 44, .68);
+        }
+
+        .submit-button {
+            width: 100%;
+            margin-top: 9px;
+        }
+
+        .button-spinner {
+            display: none;
+            width: 22px;
+            height: 22px;
+            flex: 0 0 22px;
+            border: 3px solid var(--peach);
+            border-top-color: var(--orange);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+        }
+
+        .submit-button.is-loading .button-spinner {
+            display: block;
+        }
+
+        .submit-button.is-loading .button-label {
+            opacity: .88;
+        }
+
+        .submit-button.is-loading {
+            background: var(--ink);
+            cursor: wait;
+        }
+
+        .submit-button:disabled {
+            cursor: wait;
+        }
+
+        .form-loading-overlay {
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            display: grid;
+            place-content: center;
+            justify-items: center;
+            gap: 14px;
+            padding: 24px;
+            background: rgba(56, 142, 60, .92);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .form-loading-overlay[hidden] {
+            display: none;
+        }
+
+        .form-loading-overlay p {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .overlay-spinner {
+            width: 52px;
+            height: 52px;
+            border: 5px solid var(--peach);
+            border-top-color: var(--orange);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+        }
+
+        body.is-form-loading {
+            overflow: hidden;
+        }
+
+        .order-perks {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 7px;
+            margin-top: 7px;
+            color: var(--peach);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .privacy-note,
+        .form-status,
+        .form-error {
+            margin: 7px 0 0;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .form-error {
+            color: var(--peach);
+            font-weight: 700;
+        }
+
+        .form-status {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .privacy-note {
+            color: var(--white);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .faq {
+            background: var(--paper);
+        }
+
+        .faq h2 {
+            margin-bottom: 16px;
+        }
+
+        .faq details {
+            border-top: 1px solid rgba(44, 44, 44, .22);
+        }
+
+        .faq details:last-of-type {
+            border-bottom: 1px solid rgba(44, 44, 44, .22);
+        }
+
+        .faq summary {
+            position: relative;
+            padding: 14px 28px 14px 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq summary::after {
+            content: "+";
+            position: absolute;
+            right: 2px;
+            top: 9px;
+            color: var(--orange);
+            font-size: 23px;
+            transition: transform .2s ease;
+        }
+
+        .faq details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq details p {
+            margin: 0;
+            padding: 0 12px 14px 0;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .disclaimer {
+            padding-top: 28px;
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .disclaimer-photo {
+            height: 120px;
+            margin: 0 0 20px;
+            clip-path: polygon(0 0, 100% 7%, 94% 100%, 7% 91%);
+        }
+
+        .disclaimer>p {
+            margin-bottom: 11px;
+        }
+
+        .medical-note {
+            color: var(--peach);
+            font-size: 15px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            margin-top: 22px;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-decoration: none;
+        }
+
+        .footer-brand span {
+            color: var(--peach);
+            font-size: 11px;
+            letter-spacing: .12em;
+        }
+
+        .footer-smallprint {
+            margin: 16px 0 0;
+            color: var(--peach);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .policy-links {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 224, 178, .35);
+        }
+
+        .policy-link-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2px 6px;
+        }
+
+        .policy-link {
+            padding: 5px 2px;
+            border: 0;
+            background: transparent;
+            color: var(--peach);
+            font: inherit;
+            font-size: 13px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            cursor: pointer;
+        }
+
+        .policy-link:hover,
+        .policy-link:focus-visible {
+            color: var(--white);
+        }
+
+        .policy-separator {
+            color: var(--peach);
+            opacity: .6;
+            user-select: none;
+        }
+
+        .policy-dialog {
+            width: min(420px, calc(100% - 32px));
+            max-height: min(80vh, 640px);
+            overflow-y: auto;
+            padding: 24px 20px 20px;
+            border: 1px solid var(--orange);
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        .policy-dialog::backdrop {
+            background: rgba(44, 44, 44, .68);
+        }
+
+        .policy-dialog h2 {
+            margin: 0 40px 14px 0;
+            color: var(--green);
+            font-size: 24px;
+            line-height: 1.35;
+        }
+
+        .policy-dialog p {
+            margin: 0 0 12px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .policy-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            background: var(--peach);
+            color: var(--green);
+            font-size: 23px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .policy-close:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        @media (max-width: 480px) {
+            .policy-link {
+                font-size: 14px;
+            }
+
+            .policy-dialog {
+                padding: 22px 16px 18px;
+            }
+        }
+
+        .sticky-cta {
+            position: fixed;
+            z-index: 20;
+            right: 0;
+            bottom: max(12px, env(safe-area-inset-bottom));
+            left: 0;
+            width: min(450px, calc(100% - 20px));
+            margin-inline: auto;
+            padding: 9px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--peach);
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 8px 24px rgba(44, 44, 44, .24);
+            animation: sticky-enter .25s ease-out both;
+        }
+
+        .sticky-cta[hidden] {
+            display: none;
+        }
+
+        .visually-hidden-frame {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .sticky-offer {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .sticky-offer strong {
+            font-size: 17px;
+        }
+
+        .sticky-offer span {
+            font-size: 12px;
+        }
+
+        .sticky-button {
+            min-height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 8px 12px;
+            background: var(--green);
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .sticky-button:hover {
+            transform: translateY(-2px);
+            background: var(--ink);
+        }
+
+        @keyframes sticky-enter {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 360px) {
+            .section-pad {
+                padding-inline: 18px;
+            }
+
+            .pain-list {
+                margin-inline: -18px;
+            }
+
+            .topline {
+                padding-inline: 18px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .pain-row {
+                grid-template-columns: 22px 46px 1fr 14px;
+                gap: 7px;
+            }
+
+            .pain-photo {
+                width: 42px;
+                height: 42px;
+            }
+
+            .pain-row h3 {
+                font-size: 15px;
+            }
+
+            .product-row {
+                grid-template-columns: 96px 1fr;
+            }
+
+            .quality-copy {
+                padding-inline: 18px;
+            }
+
+            .quality>.fine-print {
+                padding-inline: 18px;
+            }
+
+            .offer-photo,
+            .review-banner {
+                margin-inline: -18px;
+            }
+
+            .review-banner {
+                margin-top: -38px;
+            }
+
+            .final-image {
+                margin-right: -18px;
+            }
+
+            .sticky-cta {
+                gap: 6px;
+                padding: 8px;
+            }
+
+            .sticky-button {
+                padding-inline: 9px;
+                font-size: 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell">
+
+
+        <section class="hero " id="top" aria-labelledby="hero-title">
+            <img src="./Image/Hook.avif" alt="DERMOCARE Hero Image" loading="eager" fetchpriority="high">
+        </section>
+
+        <section class="pain " aria-labelledby="pain-title">
+            <h2 id="pain-title">सफेद दागों के साथ जीना सिर्फ एक Skin Problem जैसा महसूस नहीं होता…</h2>
+            <p class="section-lead">कई लोगों के लिए यह धीरे-धीरे confidence problem भी बन जाता है।</p>
+            <div class="pain-list">
+                <img src="./Image/problem.avif" alt="Problem with white spots on skin" loading="eager"
+                    fetchpriority="high">
+            </div>
+        </section>
+
+        <section class="kit section-pad" aria-labelledby="kit-title">
+            <div class="kit-orbit" aria-hidden="true">3<br><span>STEPS</span></div>
+            <h2 id="kit-title">DERMOCARE<br>SKIN CARE KIT</h2>
+            <h3 class="kit-subtitle">3-Step Ayurvedic Skin Care Routine</h3>
+            <p class="kit-intro">DERMOCARE Skin Care Kit को त्वचा की नियमित देखभाल के लिए एक complete routine के रूप में
+                इस्तेमाल किया जाता है।</p>
+            <p class="kit-intro">इसमें तीन अलग-अलग forms की care को एक routine में रखा गया है:</p>
+            <div class="kit-packshot image-cut"><img src="Image/4.avif"
+                    alt="DERMOCARE Skin Care Kit: tablet, powder और cream" loading="lazy"></div>
+            <div class="product-stack">
+                <article class="product-row product-tablet">
+                    <div class="product-image image-cut"><img src="Image/1.avif" alt="DERMOCARE Tablet bottle"
+                            loading="lazy"></div>
+                    <div class="product-copy">
+                        <!-- <span class="product-no">01 — INTERNAL ROUTINE</span> -->
+                        <h4>DERMOCARE TABLET</h4>
+                        <p>Daily routine में शामिल किया जाने वाला product.</p>
+                    </div>
+                </article>
+                <article class="product-row product-powder">
+                    <div class="product-image image-cut"><img src="Image/2.avif" alt="DERMOVEDA Powder bottle"
+                            loading="lazy"></div>
+                    <div class="product-copy">
+                        <!-- <span class="product-no">02 — HERBAL SKIN CARE</span> -->
+                        <h4>DERMOVEDA POWDER</h4>
+                        <p>त्वचा की देखभाल routine का हिस्सा.</p>
+                    </div>
+                </article>
+                <article class="product-row product-cream">
+                    <div class="product-image image-cut"><img src="Image/3.avif" alt="MALAM Skin Care Cream jar"
+                            loading="lazy"></div>
+                    <div class="product-copy">
+                        <!-- <span class="product-no">03 — EXTERNAL CARE</span> -->
+                        <h4>MALAM SKIN CARE CREAM</h4>
+                        <p>बाहरी त्वचा की देखभाल और moisturising के लिए.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="ingredients section-pad" aria-labelledby="ingredients-title">
+            <h2 id="ingredients-title">प्रकृति से <span>प्रेरित</span><br>Ingredients</h2>
+            <p class="section-lead">प्राकृतिक Ingredients से निर्मित Skin Care</p>
+
+            <div class="ingredient-grid">
+                <article class="ingredient-item">
+                    <div class="ingredient-photo image-cut"><img src="./Image/ind1.avif" alt="हल्दी" loading="lazy">
+                    </div>
+                    <span>हल्दी</span>
+                    <p>त्वचा देखभाल में पारंपरिक उपयोग</p><b aria-hidden="true">01</b>
+                </article>
+                <article class="ingredient-item">
+                    <div class="ingredient-photo image-cut"><img src="./Image/ind2.avif" alt="नीम की पत्तियां"
+                            loading="lazy"></div>
+                    <span>नीम</span>
+                    <p>हर्बल देखभाल का जाना-पहचाना हिस्सा</p><b aria-hidden="true">02</b>
+                </article>
+                <article class="ingredient-item">
+                    <div class="ingredient-photo image-cut"><img src="./Image/ind3.avif" alt="मंजिष्ठा" loading="lazy">
+                    </div>
+                    <span>मंजिष्ठा</span>
+                    <p>आयुर्वेदिक formulations में उपयोग</p><b aria-hidden="true">03</b>
+                </article>
+                <article class="ingredient-item">
+                    <div class="ingredient-photo image-cut"><img src="./Image/ind4.avif" alt="एलोवेरा" loading="lazy">
+                    </div>
+                    <span>एलोवेरा</span>
+                    <p>देखभाल formulations में उपयोग</p><b aria-hidden="true">04</b>
+                </article>
+            </div>
+            <p class="ingredient-caption">हल्दी • नीम • मंजिष्ठा • एलोवेरा</p>
+            <p class="ingredient-note">प्रकृति से प्रेरित देखभाल — आपकी रोज़ाना skin-care routine के लिए।</p>
+            <p class="ingredient-disclaimer">Ingredient-specific therapeutic claims केवल आपके वास्तविक formulation, label और
+                substantiation के अनुसार रखें।</p>
+        </section>
+
+        <section class="quality section-pad" aria-labelledby="quality-title">
+            <div class="quality-copy">
+                <p class="quality-kicker">मानक • गुणवत्ता • पारदर्शिता</p>
+                <h2 id="quality-title">Product खरीदते समय सिर्फ दावा नहीं — <span>Quality भी देखें</span></h2>
+                <p>हमारी प्राथमिकता है कि customer को product के बारे में स्पष्ट और transparent information मिले।</p>
+            </div>
+            <div class="quality-marks" aria-label="दिए गए quality indicators">
+                <span class="mark-gmp"><img src="./Image/cert4.avif" alt="GMP mark" loading="lazy"><b>GMP</b><small>निर्माण मानक</small></span>
+                <span class="mark-iso"><img src="./Image/cert1.avif" alt="ISO 9001 mark" loading="lazy"><b>ISO</b><small>गुणवत्ता प्रणाली</small></span>
+                <span class="mark-fssai"><img src="./Image/cert2.avif" alt="FSSAI mark" loading="lazy"><b>FSSAI</b><small>खाद्य सुरक्षा</small></span>
+                <span class="mark-lab"><img src="./Image/cert3.avif" alt="Lab tested mark" loading="lazy"><b>LAB TESTED</b><small>परीक्षण विवरण देखें</small></span>
+            </div>
+           
+        </section>
+
+        <section class="compare section-pad" aria-labelledby="compare-title">
+            <h2 id="compare-title">Random Remedies या <span>Structured Skin Care Routine?</span></h2>
+            <p class="compare-disclaimer">यह routine की तुलना है, skin results की before-and-after तस्वीर नहीं।</p>
+            <div class="compare-head">
+                <h3>बिना Structured Routine<small>अलग-अलग घरेलू उपाय</small></h3>
+                <span aria-hidden="true"></span>
+                <h3>DERMOCARE Routine<small>तीन products, एक routine</small></h3>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-1" aria-hidden="true"></span><span class="compare-copy">अलग-अलग घरेलू नुस्खे आज़माना</span><i class="compare-status compare-no" aria-label="अलग-अलग उपायों में उलझन">×</i></div>
+                <span class="compare-arrow" aria-hidden="true">›</span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/1.avif" alt="" loading="lazy"></span><span class="compare-copy">एक तय skin-care routine</span><i class="compare-status compare-yes" aria-label="एक तय routine">✓</i></div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-2" aria-hidden="true"></span><span class="compare-copy">Products के बारे में confusion</span><i class="compare-status compare-no" aria-label="Products को लेकर confusion">×</i></div>
+                <span class="compare-arrow" aria-hidden="true">›</span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/4.avif" alt="" loading="lazy"></span><span class="compare-copy">3-product routine</span><i class="compare-status compare-yes" aria-label="तीन products की routine">✓</i></div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-3" aria-hidden="true"></span><span class="compare-copy">Regularity maintain करना मुश्किल</span><i class="compare-status compare-no" aria-label="Regularity बनाए रखना कठिन">×</i></div>
+                <span class="compare-arrow" aria-hidden="true">›</span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/2.avif" alt="" loading="lazy"></span><span class="compare-copy">आसानी से follow होने वाली routine</span><i class="compare-status compare-yes" aria-label="Routine follow करने में आसान">✓</i></div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-4" aria-hidden="true"></span><span class="compare-copy">अलग-अलग products ढूंढना</span><i class="compare-status compare-no" aria-label="Products अलग-अलग ढूंढना">×</i></div>
+                <span class="compare-arrow" aria-hidden="true">›</span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/4.avif" alt="" loading="lazy"></span><span class="compare-copy">Products एक coordinated kit में</span><i class="compare-status compare-yes" aria-label="Products एक kit में">✓</i></div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-5" aria-hidden="true"></span><span class="compare-copy">बिना cause समझे प्रयोग करना</span><i class="compare-status compare-no" aria-label="Diagnosis के बिना प्रयोग करना">×</i></div>
+                <span class="compare-arrow" aria-hidden="true">›</span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/3.avif" alt="" loading="lazy"></span><span class="compare-copy">Skin condition समझने पर focus</span><i class="compare-status compare-yes" aria-label="Skin condition समझने पर focus">✓</i></div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-6" aria-hidden="true"></span><span class="compare-copy">Routine बार-बार बदलना</span><i class="compare-status compare-no" aria-label="Routine बार-बार बदलना">×</i></div>
+                <span class="compare-arrow" aria-hidden="true">›</span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/1.avif" alt="" loading="lazy"></span><span class="compare-copy">Consistent routine बनाए रखना</span><i class="compare-status compare-yes" aria-label="Consistent routine">✓</i></div>
+            </div>
+        </section>
+
+        <section class="reviews section-pad" aria-labelledby="reviews-title">
+            <h2 id="reviews-title">हमारे ग्राहकों का अनुभव</h2>
+
+            <article class="review-quote">
+                <div class="review-avatar-wrap"><span aria-hidden="true">NS</span><img class="review-avatar" src="./Image/client1.avif" alt="" loading="lazy"></div>
+                <div class="review-content">
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <blockquote>“मैं अपनी त्वचा को लेकर काफी समय से परेशान थी। Dermocare Skin Care Kit लेने के बाद मैंने अपनी skin-care routine को नियमित किया। मेरे लिए सबसे अच्छी बात यह रही कि routine समझना आसान था।”</blockquote>
+                    <div class="review-byline"><p>Neha Sharma</p><span class="review-location">● Jaipur, Rajasthan</span></div>
+                    <small class="review-product">DERMOCARE Skin Care Kit</small>
+                </div>
+            </article>
+            <article class="review-quote">
+                <div class="review-avatar-wrap"><span aria-hidden="true">RK</span><img class="review-avatar" src="./Image/client2.avif" alt="" loading="lazy"></div>
+                <div class="review-content">
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <blockquote>“पहले मैं अलग-अलग घरेलू उपाय try करता रहता था। Dermocare Kit के साथ मैंने एक fixed routine follow करना शुरू किया। इस्तेमाल करना आसान लगा।”</blockquote>
+                    <div class="review-byline"><p>Rajesh Kumar</p><span class="review-location">● Delhi</span></div>
+                    <small class="review-product">DERMOCARE Skin Care Kit</small>
+                </div>
+            </article>
+            <article class="review-quote">
+                <div class="review-avatar-wrap"><span aria-hidden="true">PV</span><img class="review-avatar" src="./Image/client3.avif" alt="" loading="lazy"></div>
+                <div class="review-content">
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <blockquote>“मुझे अपनी skin को लेकर confidence कम महसूस होता था। मैंने Dermocare Skin Care Kit को अपनी regular care routine में शामिल किया। अब मैं अपनी skin-care को लेकर ज्यादा consistent हूं।”</blockquote>
+                    <div class="review-byline"><p>Pooja Verma</p><span class="review-location">● Lucknow</span></div>
+                    <small class="review-product">DERMOCARE Skin Care Kit</small>
+                </div>
+            </article>
+            <article class="review-quote">
+                <div class="review-avatar-wrap"><span aria-hidden="true">AS</span><img class="review-avatar" src="./Image/client4.avif" alt="" loading="lazy"></div>
+                <div class="review-content">
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <blockquote>“Kit में routine के लिए तीन अलग products मिलते हैं, इसलिए मुझे अलग-अलग चीजें ढूंढने की जरूरत नहीं पड़ी। Packaging और usage instructions भी समझने में आसान लगे।”</blockquote>
+                    <div class="review-byline"><p>Amit Singh</p><span class="review-location">● Jaipur</span></div>
+                    <small class="review-product">DERMOCARE Skin Care Kit</small>
+                </div>
+            </article>
+        </section>
+
+        <section class="offer section-pad" aria-labelledby="offer-title">
+            <div class="offer-copy">
+                <p class="offer-label">🎁 SPECIAL OFFER FOR YOU</p>
+                <h2 id="offer-title">DERMOCARE SKIN CARE KIT पर <em>10% OFF</em></h2>
+                <p class="offer-subtitle">आज अपना order book करें</p>
+                <div class="offer-perks"><span>🎁 10% OFF</span><span>🚚 Free Delivery</span><span>📋 Free Diet
+                        Chart</span><span>📦 Cash on Delivery Available</span><span>🔒 Secure Order Process</span></div>
+                <p class="offer-note">Limited-period promotional offer</p>
+                <a class="button button-dark" href="#order">👉 अभी अपना Order Book करें <span
+                        aria-hidden="true">↘</span></a>
+                <p class="fine-print">COD और delivery उपलब्धता आपके location और order availability पर निर्भर करती है।
+                </p>
+            </div>
+        </section>
+
+        <section class="final-cta section-pad" aria-labelledby="cta-title">
+            <h2 id="cta-title">अब अपनी त्वचा को छिपाने के बजाय उसकी देखभाल पर ध्यान दें।</h2>
+            <p>सही जानकारी लें।<br>अपनी skin condition को समझें।<br>एक consistent routine अपनाएं।</p>
+            <h3>DERMOCARE SKIN CARE KIT</h3>
+            <strong class="cta-offer">10% OFF + COD AVAILABLE</strong>
+            <a class="button button-primary" href="#order">🟡 अभी अपना Order Book करें <span
+                    aria-hidden="true">↘</span></a>
+            <p class="cta-foot">हमारी team order confirmation के लिए आपसे संपर्क करेगी।</p>
+        </section>
+
+        <section class="order section-pad" id="order" aria-labelledby="order-title">
+            <h2 id="order-title">🛒 अपना DERMOCARE KIT ऑर्डर करें</h2>
+            <p class="order-lead">सिर्फ 2 जानकारी भरें</p>
+            <form id="order-form" method="post" target="order-response-frame" novalidate>
+                <label for="customer-name">आपका नाम <span>*</span></label>
+                <input id="customer-name" name="name" type="text" placeholder="अपना नाम दर्ज करें" autocomplete="name"
+                    required>
+                <label for="customer-phone">मोबाइल नंबर <span>*</span></label>
+                <input id="customer-phone" name="phone" type="tel" inputmode="numeric"
+                    placeholder="10 Digit Mobile Number" autocomplete="tel-national" maxlength="10" pattern="[0-9]{10}"
+                    required>
+                <input type="hidden" name="request_id" id="request-id">
+                <input type="hidden" name="utm_source">
+                <input type="hidden" name="utm_medium">
+                <input type="hidden" name="utm_campaign">
+                <input type="hidden" name="utm_campaign_id">
+                <input type="hidden" name="utm_adset">
+                <input type="hidden" name="utm_adset_id">
+                <input type="hidden" name="utm_ad">
+                <input type="hidden" name="utm_ad_id">
+                <input type="hidden" name="utm_content">
+                <input type="hidden" name="utm_term">
+                <input type="hidden" name="utm_placement">
+                <input type="hidden" name="device_platform">
+                <input type="hidden" name="landing_page">
+                <input type="hidden" name="referrer">
+                <button class="button button-primary submit-button" type="submit"><span class="button-label">🟡 मेरा
+                        Order Book करें</span><span class="button-spinner" aria-hidden="true"></span></button>
+                <p class="form-error" id="form-error" role="alert" hidden></p>
+                <div class="order-perks"><span>✓ COD Available</span><span>✓ Home Delivery</span><span>✓ 10% OFF</span>
+                </div>
+                <p class="privacy-note">🔒 आपकी जानकारी order processing और confirmation के लिए उपयोग की जाएगी।</p>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="faq section-pad" aria-labelledby="faq-title">
+            <h2 id="faq-title">अक्सर पूछे जाने वाले सवाल</h2>
+            <details>
+                <summary>1. Dermocare Skin Care Kit क्या है?</summary>
+                <p>Dermocare Skin Care Kit एक 3-product skin-care routine है जिसमें Dermocare Tablet, Dermoveda Powder
+                    और Malam Skin Care Cream शामिल हैं।</p>
+            </details>
+            <details>
+                <summary>2. क्या हर सफेद दाग Vitiligo होता है?</summary>
+                <p>नहीं। त्वचा पर सफेद या हल्के patches के कई संभावित कारण हो सकते हैं। इसलिए केवल appearance देखकर खुद
+                    से diagnosis करना उचित नहीं है।</p>
+            </details>
+            <details>
+                <summary>3. क्या Dermocare Vitiligo को ठीक करता है?</summary>
+                <p>Dermocare को vitiligo का guaranteed cure या guaranteed treatment नहीं बताया जाना चाहिए। Vitiligo एक
+                    medical condition है और इसके लिए diagnosis तथा appropriate treatment के लिए dermatologist की सलाह
+                    महत्वपूर्ण है।</p>
+            </details>
+            <details>
+                <summary>4. कितने दिनों में result दिखाई देगा?</summary>
+                <p>किसी निश्चित समय में result की guarantee नहीं की जा सकती। Skin conditions में response व्यक्ति और
+                    underlying condition के अनुसार अलग हो सकता है।</p>
+            </details>
+            <details>
+                <summary>5. क्या इसे रोज़ इस्तेमाल किया जा सकता है?</summary>
+                <p>Products को packaging/label पर दिए गए recommended directions के अनुसार इस्तेमाल करें।</p>
+            </details>
+            <details>
+                <summary>6. क्या COD available है?</summary>
+                <p>हाँ, Cash on Delivery available है, subject to delivery location and order availability.</p>
+            </details>
+        </section>
+
+        <footer class="disclaimer section-pad">
+            <p>DERMOCARE Skin Care Kit को किसी disease के cure, guaranteed treatment या guaranteed recovery के रूप में
+                प्रस्तुत नहीं किया जाना चाहिए।</p>
+            <nav class="policy-links" aria-label="Policies and support">
+                <div class="policy-link-row">
+                    <button class="policy-link" type="button" data-policy="privacy">Privacy Policy</button>
+                    <span class="policy-separator" aria-hidden="true">|</span>
+                    <button class="policy-link" type="button" data-policy="terms">Terms &amp; Conditions</button>
+                    <span class="policy-separator" aria-hidden="true">|</span>
+                    <button class="policy-link" type="button" data-policy="shipping">Shipping Policy</button>
+                    <span class="policy-separator" aria-hidden="true">|</span>
+                    <button class="policy-link" type="button" data-policy="cancellation">Cancellation Policy</button>
+                    <span class="policy-separator" aria-hidden="true">|</span>
+                    <button class="policy-link" type="button" data-policy="contact">Contact Us</button>
+                    <span class="policy-separator" aria-hidden="true">|</span>
+                    <button class="policy-link" type="button" data-policy="disclaimer">Legal Disclaimer</button>
+                </div>
+            </nav>
+        </footer>
+    </main>
+    <dialog class="policy-dialog" id="policy-dialog" aria-labelledby="policy-dialog-title">
+        <form method="dialog">
+            <button class="policy-close" type="submit" aria-label="Close policy">×</button>
+        </form>
+        <h2 id="policy-dialog-title"></h2>
+        <div id="policy-dialog-content"></div>
+    </dialog>
+    <aside class="sticky-cta" id="sticky-cta" aria-label="DERMOCARE offer" hidden>
+        <div class="sticky-offer"><strong>10% OFF</strong><span>Free Delivery · COD</span></div>
+        <a class="sticky-button" href="#order">अभी Order करें <span aria-hidden="true">↗</span></a>
+    </aside>
+    <iframe name="order-response-frame" id="order-response-frame" title="Order submission response"
+        class="visually-hidden-frame"></iframe>
+    <div class="form-loading-overlay" id="form-loading-overlay" role="status" aria-live="assertive" hidden>
+        <span class="overlay-spinner" aria-hidden="true"></span>
+        <p>आपका order भेजा जा रहा है…</p>
+    </div>
+    <script>
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzla531K40Mhx3ffb0z80aQe31ufq_2UNHu4cc1QBe0-684cGyDTpZhDRrihfr8SmJggA/exec";
+        const UTM_KEYS = [
+            "utm_source", "utm_medium", "utm_campaign", "utm_campaign_id", "utm_adset",
+            "utm_adset_id", "utm_ad", "utm_ad_id", "utm_content", "utm_term",
+            "utm_placement", "device_platform"
+        ];
+        const ATTRIBUTION_KEY = "dermocare_attribution_v1";
+        const form = document.querySelector("#order-form");
+        const nameInput = document.querySelector("#customer-name");
+        const phoneInput = document.querySelector("#customer-phone");
+        const errorMessage = document.querySelector("#form-error");
+        const statusMessage = document.querySelector("#form-status");
+        const submitButton = form.querySelector("button[type='submit']");
+        const submitLabel = submitButton.querySelector(".button-label");
+        const responseFrame = document.querySelector("#order-response-frame");
+        const loadingOverlay = document.querySelector("#form-loading-overlay");
+        const policyDialog = document.querySelector("#policy-dialog");
+        const policyDialogTitle = document.querySelector("#policy-dialog-title");
+        const policyDialogContent = document.querySelector("#policy-dialog-content");
+        let pendingRequestId = "";
+
+        const POLICY_CONTENT = {
+            privacy: {
+                title: "Privacy Policy",
+                paragraphs: [
+                    "Order request के लिए form आपका नाम और mobile number लेता है। Page URL, referrer और ad attribution details भी request के साथ भेजे जा सकते हैं।",
+                    "इस जानकारी का उद्देश्य order processing और confirmation है। Publish करने से पहले अपने actual data access, retention और support-contact details के अनुसार इस policy की समीक्षा करें।"
+                ]
+            },
+            terms: {
+                title: "Terms & Conditions",
+                paragraphs: [
+                    "DERMOCARE Skin Care Kit को नियमित skin-care routine के रूप में प्रस्तुत किया गया है; इसे किसी disease के cure या guaranteed treatment के रूप में न समझें।",
+                    "Products को packaging/label पर दिए गए directions के अनुसार इस्तेमाल करें। सफेद या हल्के patches के कारण जानने और treatment के लिए dermatologist से सलाह लें।"
+                ]
+            },
+            shipping: {
+                title: "Shipping Policy",
+                paragraphs: [
+                    "Home delivery और Cash on Delivery की उपलब्धता delivery location और order availability पर निर्भर करती है।",
+                    "Free delivery या promotional offer की लागू शर्तें order confirmation के समय जाँचें। इस page पर किसी निश्चित delivery timeline की guarantee नहीं दी जाती।"
+                ]
+            },
+            cancellation: {
+                title: "Cancellation Policy",
+                paragraphs: [
+                    "Order cancel या update करने के लिए confirmation के बाद हमारी team से संपर्क करें।",
+                    "Cancellation की उपलब्धता order की processing और dispatch स्थिति पर निर्भर करेगी। लागू eligibility की पुष्टि team से करें।"
+                ]
+            },
+            contact: {
+                title: "Contact Us",
+                paragraphs: [
+                    "Order confirmation के लिए हमारी team आपसे संपर्क करेगी। Order से जुड़ी सहायता के लिए confirmation message या product packaging पर दिए गए DERMOCARE support details का उपयोग करें।"
+                ]
+            },
+            disclaimer: {
+                title: "Legal Disclaimer",
+                paragraphs: [
+                    "DERMOCARE Skin Care Kit को किसी disease के cure, guaranteed treatment या guaranteed recovery के रूप में प्रस्तुत नहीं किया जाना चाहिए।",
+                    "त्वचा पर सफेद या हल्के patches के कई संभावित कारण हो सकते हैं। Diagnosis और उपयुक्त treatment के लिए dermatologist से सलाह लें। किसी निश्चित समय में result की guarantee नहीं दी जा सकती।"
+                ]
+            }
+        };
+
+        document.querySelectorAll("[data-policy]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const policy = POLICY_CONTENT[button.dataset.policy];
+                if (!policy) return;
+                policyDialogTitle.textContent = policy.title;
+                policyDialogContent.replaceChildren(...policy.paragraphs.map((text) => {
+                    const paragraph = document.createElement("p");
+                    paragraph.textContent = text;
+                    return paragraph;
+                }));
+                policyDialog.showModal();
+            });
+        });
+
+        policyDialog.addEventListener("click", (event) => {
+            if (event.target === policyDialog) policyDialog.close();
+        });
+        let responseTimeout;
+
+        function readStoredAttribution() {
+            try {
+                return JSON.parse(sessionStorage.getItem(ATTRIBUTION_KEY) || "{}");
+            } catch {
+                return {};
+            }
+        }
+
+        const attribution = readStoredAttribution();
+        const query = new URLSearchParams(window.location.search);
+        UTM_KEYS.forEach((key) => {
+            if (query.has(key) && query.get(key)) attribution[key] = query.get(key);
+            const field = form.elements.namedItem(key);
+            field.value = attribution[key] || "";
+        });
+        try {
+            sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(attribution));
+        } catch {
+            // Continue without cross-page attribution persistence when storage is unavailable.
+        }
+        form.elements.namedItem("landing_page").value = window.location.href;
+        form.elements.namedItem("referrer").value = document.referrer;
+
+        function resetSubmitButton() {
+            window.clearTimeout(responseTimeout);
+            submitButton.disabled = false;
+            submitButton.classList.remove("is-loading");
+            form.classList.remove("is-loading");
+            loadingOverlay.hidden = true;
+            document.body.classList.remove("is-form-loading");
+            submitLabel.textContent = "🟡 मेरा Order Book करें";
+        }
+
+        phoneInput.addEventListener("input", () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+        });
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            errorMessage.hidden = true;
+            statusMessage.textContent = "";
+
+            if (!nameInput.value.trim() || !/^[0-9]{10}$/.test(phoneInput.value)) {
+                errorMessage.textContent = !nameInput.value.trim()
+                    ? "कृपया अपना नाम दर्ज करें।"
+                    : "कृपया 10 अंकों का मोबाइल नंबर दर्ज करें।";
+                errorMessage.hidden = false;
+                (!nameInput.value.trim() ? nameInput : phoneInput).focus();
+                return;
+            }
+
+            if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(GOOGLE_APPS_SCRIPT_URL)) {
+                statusMessage.textContent = "Order submission configure नहीं है। Google Apps Script Web App URL जोड़ने के बाद फिर कोशिश करें।";
+                return;
+            }
+
+            pendingRequestId = window.crypto?.randomUUID?.()
+                || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+            form.elements.namedItem("request_id").value = pendingRequestId;
+            form.action = GOOGLE_APPS_SCRIPT_URL;
+            form.classList.add("is-loading");
+            loadingOverlay.hidden = false;
+            document.body.classList.add("is-form-loading");
+            submitButton.disabled = true;
+            submitButton.classList.add("is-loading");
+            submitLabel.textContent = "कृपया प्रतीक्षा करें…";
+            statusMessage.textContent = "आपका order सुरक्षित रूप से भेजा जा रहा है…";
+            responseTimeout = window.setTimeout(() => {
+                resetSubmitButton();
+                statusMessage.textContent = "अभी confirmation नहीं मिला। दोबारा भेजने से पहले order status जाँच लें।";
+            }, 20000);
+            HTMLFormElement.prototype.submit.call(form);
+        });
+
+        window.addEventListener("message", (event) => {
+            const result = event.data;
+            if (event.source !== responseFrame.contentWindow
+                || result?.type !== "dermocare-order-result"
+                || result.requestId !== pendingRequestId) return;
+
+            resetSubmitButton();
+            if (!result.ok) {
+                statusMessage.textContent = result.message || "Order save नहीं हो सका। कृपया कुछ देर बाद फिर कोशिश करें।";
+                return;
+            }
+
+            const thankYouUrl = new URL("thankyou.html", window.location.href);
+            UTM_KEYS.forEach((key) => {
+                const value = form.elements.namedItem(key).value;
+                if (value) thankYouUrl.searchParams.set(key, value);
+            });
+            if (result.orderId) thankYouUrl.searchParams.set("order_id", result.orderId);
+            window.location.assign(thankYouUrl.href);
+        });
+
+        document.querySelectorAll(".review-avatar").forEach((image) => {
+            image.addEventListener("error", () => {
+                image.hidden = true;
+            }, { once: true });
+        });
+
+        const stickyCta = document.querySelector("#sticky-cta");
+        const stickyBlockers = new Set();
+        const stickyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) stickyBlockers.add(entry.target);
+                else stickyBlockers.delete(entry.target);
+            });
+            stickyCta.hidden = stickyBlockers.size > 0;
+        }, { threshold: 0.01 });
+
+        document.querySelectorAll("#top, #order, .disclaimer").forEach((section) => {
+            stickyObserver.observe(section);
+        });
+    </script>
+</body>
+
+</html>
