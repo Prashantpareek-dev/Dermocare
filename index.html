@@ -49,6 +49,23 @@
             object-fit: cover;
         }
 
+        .icon {
+            width: 1em;
+            height: 1em;
+            flex: 0 0 auto;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: -.15em;
+        }
+
+        .icon-fill {
+            fill: currentColor;
+            stroke: none;
+        }
+
         a {
             color: inherit;
         }
@@ -878,6 +895,12 @@
             line-height: 1;
         }
 
+        .compare-status .icon {
+            width: 12px;
+            height: 12px;
+            stroke-width: 3;
+        }
+
         .compare-no {
             background: #E95562;
         }
@@ -900,6 +923,12 @@
             font-size: 18px;
             font-weight: 700;
             line-height: 1;
+        }
+
+        .compare-arrow .icon {
+            width: 15px;
+            height: 15px;
+            stroke-width: 3;
         }
 
         @media (max-width: 360px) {
@@ -1118,6 +1147,14 @@
             line-height: 1;
         }
 
+        .stars .icon {
+            width: .95em;
+            height: .95em;
+            margin-right: 1px;
+            fill: currentColor;
+            stroke: none;
+        }
+
         .review-sample {
             padding: 3px 7px;
             border-radius: 999px;
@@ -1182,15 +1219,27 @@
         }
 
         .offer {
-            padding-top: 0;
-            background: var(--orange);
-            color: var(--white);
+            padding: 22px 14px 20px;
+            border: 1px solid #FFD18C;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #FFFEFA, #FFF1DD);
+            color: var(--ink);
         }
 
         .offer-photo {
-            height: 180px;
-            margin: 0 -24px 22px;
-            clip-path: polygon(0 0, 100% 0, 100% 86%, 12% 100%);
+            aspect-ratio: 3 / 2;
+            margin: 0 0 8px;
+            overflow: hidden;
+            border: 1px solid rgba(239, 108, 0, .12);
+            border-radius: 12px;
+            background: #F8F7F2;
+            box-shadow: 0 5px 16px rgba(92, 65, 24, .11);
+        }
+
+        .offer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .offer-copy {
@@ -1198,68 +1247,151 @@
         }
 
         .offer-label {
-            color: var(--peach);
-            font-size: 16px;
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto 13px;
+            padding: 8px 18px;
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 999px;
+            background: linear-gradient(100deg, #FF7B19, #DC3D00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 5px 12px rgba(164, 62, 8, .22);
         }
 
         .offer h2 {
-            margin: 6px 0;
-            font-size: 30px;
+            margin: 0 0 4px;
+            color: #124629;
+            font-size: 28px;
+            line-height: 1.15;
+            text-wrap: balance;
         }
 
         .offer h2 em {
             display: block;
-            color: var(--peach);
+            color: var(--orange);
             font-style: normal;
-            font-size: 35px;
+            font-size: 29px;
         }
 
         .offer-subtitle {
-            margin-bottom: 13px;
-            font-size: 18px;
+            margin-bottom: 0;
+            color: #49483F;
+            font-size: 16px;
+            line-height: 1.4;
         }
 
         .offer-perks {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 14px 0;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 6px;
+            margin: 12px 0 8px;
+            text-align: center;
+        }
+
+        .offer-perk {
+            min-width: 0;
+            min-height: 102px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 7px 4px;
+            border: 1px solid rgba(239, 108, 0, .16);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .82);
+            color: var(--ink);
+            font-size: 12px;
+            line-height: 1.25;
+            box-shadow: 0 3px 9px rgba(92, 65, 24, .06);
+        }
+
+        .offer-perk-icon {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #FFE8CC;
+            color: var(--orange);
+        }
+
+        .offer-perk-icon .icon {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2.3;
+        }
+
+        .offer-perk strong {
+            font-size: 12px;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        .offer-perk small {
+            color: #5A584F;
+            font-size: 10px;
+            line-height: 1.25;
+            text-wrap: balance;
+        }
+
+        .offer-perk:last-child {
+            grid-column: 1 / -1;
+            min-height: 64px;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
             text-align: left;
         }
 
-        .offer-perks span {
-            min-height: 43px;
-            display: flex;
-            align-items: center;
-            padding: 7px 9px;
-            background: var(--paper);
-            color: var(--ink);
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.3;
+        .offer-perk:last-child .offer-perk-icon {
+            background: #EAF1D3;
+            color: var(--green);
         }
 
-        .offer-perks span:last-child {
-            grid-column: 1 / -1;
+        .offer-perk-copy {
+            display: grid;
+            gap: 2px;
         }
 
         .offer-note {
-            margin: 12px 0;
+            margin: 10px 0 12px;
+            color: var(--orange);
             font-size: 14px;
+            font-weight: 600;
+        }
+
+        .offer-medical-note {
+            margin: 8px 0 12px;
+            color: #4A493F;
+            font-size: 11px;
+            line-height: 1.4;
         }
 
         .button-dark {
             width: 100%;
-            background: var(--ink);
+            min-height: 56px;
+            border-radius: 999px;
+            background: linear-gradient(100deg, #48A800, #00542A);
             color: var(--white);
+            box-shadow: 0 5px 15px rgba(52, 123, 13, .25);
         }
 
         .button-dark:hover {
-            background: var(--green);
+            background: linear-gradient(100deg, #388E3C, #003F22);
         }
 
         .offer .fine-print {
-            color: var(--white);
+            margin: 12px 0 0;
+            color: #49483F;
+            font-size: 12px;
+            text-align: center;
         }
 
         .final-cta {
@@ -1450,6 +1582,22 @@
             color: var(--peach);
             font-size: 13px;
             font-weight: 700;
+        }
+
+        .order-perks span,
+        .privacy-note,
+        .review-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .order-perks .icon {
+            color: var(--peach);
+        }
+
+        .privacy-note .icon {
+            color: var(--peach);
         }
 
         .privacy-note,
@@ -1830,6 +1978,20 @@
 </head>
 
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <symbol id="icon-gift" viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 7v14M12 7H7.5a2.5 2.5 0 1 1 2.5-2.5C10 6 12 7 12 7Zm0 0h4.5A2.5 2.5 0 1 0 14 4.5C14 6 12 7 12 7Z"/></symbol>
+        <symbol id="icon-truck" viewBox="0 0 24 24"><path d="M3 6h11v12H3zM14 10h4l3 3v5h-7z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/><path d="M14 13h7"/></symbol>
+        <symbol id="icon-clipboard" viewBox="0 0 24 24"><path d="M9 4H5v17h14V4h-4M9 3h6v4H9zM8 12h8M8 16h8"/></symbol>
+        <symbol id="icon-package" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5ZM3 8v10l9 5 9-5V8M12 13v10M7.5 5.5l9 5"/></symbol>
+        <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+        <symbol id="icon-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+        <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+        <symbol id="icon-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    </svg>
     <main class="page-shell">
 
 
@@ -1946,34 +2108,34 @@
                 <h3>DERMOCARE Routine<small>तीन products, एक routine</small></h3>
             </div>
             <div class="compare-row">
-                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-1" aria-hidden="true"></span><span class="compare-copy">अलग-अलग घरेलू नुस्खे आज़माना</span><i class="compare-status compare-no" aria-label="अलग-अलग उपायों में उलझन">×</i></div>
-                <span class="compare-arrow" aria-hidden="true">›</span>
-                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/1.avif" alt="" loading="lazy"></span><span class="compare-copy">एक तय skin-care routine</span><i class="compare-status compare-yes" aria-label="एक तय routine">✓</i></div>
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-1" aria-hidden="true"></span><span class="compare-copy">अलग-अलग घरेलू नुस्खे आज़माना</span><span class="compare-status compare-no" role="img" aria-label="अलग-अलग उपायों में उलझन"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></span></div>
+                <span class="compare-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/1.avif" alt="" loading="lazy"></span><span class="compare-copy">एक तय skin-care routine</span><span class="compare-status compare-yes" role="img" aria-label="एक तय routine"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span></div>
             </div>
             <div class="compare-row">
-                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-2" aria-hidden="true"></span><span class="compare-copy">Products के बारे में confusion</span><i class="compare-status compare-no" aria-label="Products को लेकर confusion">×</i></div>
-                <span class="compare-arrow" aria-hidden="true">›</span>
-                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/4.avif" alt="" loading="lazy"></span><span class="compare-copy">3-product routine</span><i class="compare-status compare-yes" aria-label="तीन products की routine">✓</i></div>
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-2" aria-hidden="true"></span><span class="compare-copy">Products के बारे में confusion</span><span class="compare-status compare-no" role="img" aria-label="Products को लेकर confusion"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></span></div>
+                <span class="compare-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/4.avif" alt="" loading="lazy"></span><span class="compare-copy">3-product routine</span><span class="compare-status compare-yes" role="img" aria-label="तीन products की routine"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span></div>
             </div>
             <div class="compare-row">
-                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-3" aria-hidden="true"></span><span class="compare-copy">Regularity maintain करना मुश्किल</span><i class="compare-status compare-no" aria-label="Regularity बनाए रखना कठिन">×</i></div>
-                <span class="compare-arrow" aria-hidden="true">›</span>
-                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/2.avif" alt="" loading="lazy"></span><span class="compare-copy">आसानी से follow होने वाली routine</span><i class="compare-status compare-yes" aria-label="Routine follow करने में आसान">✓</i></div>
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-3" aria-hidden="true"></span><span class="compare-copy">Regularity maintain करना मुश्किल</span><span class="compare-status compare-no" role="img" aria-label="Regularity बनाए रखना कठिन"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></span></div>
+                <span class="compare-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/2.avif" alt="" loading="lazy"></span><span class="compare-copy">आसानी से follow होने वाली routine</span><span class="compare-status compare-yes" role="img" aria-label="Routine follow करने में आसान"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span></div>
             </div>
             <div class="compare-row">
-                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-4" aria-hidden="true"></span><span class="compare-copy">अलग-अलग products ढूंढना</span><i class="compare-status compare-no" aria-label="Products अलग-अलग ढूंढना">×</i></div>
-                <span class="compare-arrow" aria-hidden="true">›</span>
-                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/4.avif" alt="" loading="lazy"></span><span class="compare-copy">Products एक coordinated kit में</span><i class="compare-status compare-yes" aria-label="Products एक kit में">✓</i></div>
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-4" aria-hidden="true"></span><span class="compare-copy">अलग-अलग products ढूंढना</span><span class="compare-status compare-no" role="img" aria-label="Products अलग-अलग ढूंढना"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></span></div>
+                <span class="compare-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/4.avif" alt="" loading="lazy"></span><span class="compare-copy">Products एक coordinated kit में</span><span class="compare-status compare-yes" role="img" aria-label="Products एक kit में"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span></div>
             </div>
             <div class="compare-row">
-                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-5" aria-hidden="true"></span><span class="compare-copy">बिना cause समझे प्रयोग करना</span><i class="compare-status compare-no" aria-label="Diagnosis के बिना प्रयोग करना">×</i></div>
-                <span class="compare-arrow" aria-hidden="true">›</span>
-                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/3.avif" alt="" loading="lazy"></span><span class="compare-copy">Skin condition समझने पर focus</span><i class="compare-status compare-yes" aria-label="Skin condition समझने पर focus">✓</i></div>
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-5" aria-hidden="true"></span><span class="compare-copy">बिना cause समझे प्रयोग करना</span><span class="compare-status compare-no" role="img" aria-label="Diagnosis के बिना प्रयोग करना"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></span></div>
+                <span class="compare-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/3.avif" alt="" loading="lazy"></span><span class="compare-copy">Skin condition समझने पर focus</span><span class="compare-status compare-yes" role="img" aria-label="Skin condition समझने पर focus"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span></div>
             </div>
             <div class="compare-row">
-                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-6" aria-hidden="true"></span><span class="compare-copy">Routine बार-बार बदलना</span><i class="compare-status compare-no" aria-label="Routine बार-बार बदलना">×</i></div>
-                <span class="compare-arrow" aria-hidden="true">›</span>
-                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/1.avif" alt="" loading="lazy"></span><span class="compare-copy">Consistent routine बनाए रखना</span><i class="compare-status compare-yes" aria-label="Consistent routine">✓</i></div>
+                <div class="compare-cell compare-left-cell"><span class="compare-thumb compare-problem compare-problem-6" aria-hidden="true"></span><span class="compare-copy">Routine बार-बार बदलना</span><span class="compare-status compare-no" role="img" aria-label="Routine बार-बार बदलना"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></span></div>
+                <span class="compare-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+                <div class="compare-cell compare-right-cell"><span class="compare-thumb compare-product"><img src="./Image/1.avif" alt="" loading="lazy"></span><span class="compare-copy">Consistent routine बनाए रखना</span><span class="compare-status compare-yes" role="img" aria-label="Consistent routine"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span></div>
             </div>
         </section>
 
@@ -1983,36 +2145,36 @@
             <article class="review-quote">
                 <div class="review-avatar-wrap"><span aria-hidden="true">NS</span><img class="review-avatar" src="./Image/client1.avif" alt="" loading="lazy"></div>
                 <div class="review-content">
-                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating"><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg></div><span class="review-sample">Sample review</span></div>
                     <blockquote>“मैं अपनी त्वचा को लेकर काफी समय से परेशान थी। Dermocare Skin Care Kit लेने के बाद मैंने अपनी skin-care routine को नियमित किया। मेरे लिए सबसे अच्छी बात यह रही कि routine समझना आसान था।”</blockquote>
-                    <div class="review-byline"><p>Neha Sharma</p><span class="review-location">● Jaipur, Rajasthan</span></div>
+                    <div class="review-byline"><p>Neha Sharma</p><span class="review-location"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>Jaipur, Rajasthan</span></div>
                     <small class="review-product">DERMOCARE Skin Care Kit</small>
                 </div>
             </article>
             <article class="review-quote">
                 <div class="review-avatar-wrap"><span aria-hidden="true">RK</span><img class="review-avatar" src="./Image/client2.avif" alt="" loading="lazy"></div>
                 <div class="review-content">
-                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating"><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg></div><span class="review-sample">Sample review</span></div>
                     <blockquote>“पहले मैं अलग-अलग घरेलू उपाय try करता रहता था। Dermocare Kit के साथ मैंने एक fixed routine follow करना शुरू किया। इस्तेमाल करना आसान लगा।”</blockquote>
-                    <div class="review-byline"><p>Rajesh Kumar</p><span class="review-location">● Delhi</span></div>
+                    <div class="review-byline"><p>Rajesh Kumar</p><span class="review-location"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>Delhi</span></div>
                     <small class="review-product">DERMOCARE Skin Care Kit</small>
                 </div>
             </article>
             <article class="review-quote">
                 <div class="review-avatar-wrap"><span aria-hidden="true">PV</span><img class="review-avatar" src="./Image/client3.avif" alt="" loading="lazy"></div>
                 <div class="review-content">
-                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating"><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg></div><span class="review-sample">Sample review</span></div>
                     <blockquote>“मुझे अपनी skin को लेकर confidence कम महसूस होता था। मैंने Dermocare Skin Care Kit को अपनी regular care routine में शामिल किया। अब मैं अपनी skin-care को लेकर ज्यादा consistent हूं।”</blockquote>
-                    <div class="review-byline"><p>Pooja Verma</p><span class="review-location">● Lucknow</span></div>
+                    <div class="review-byline"><p>Pooja Verma</p><span class="review-location"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>Lucknow</span></div>
                     <small class="review-product">DERMOCARE Skin Care Kit</small>
                 </div>
             </article>
             <article class="review-quote">
                 <div class="review-avatar-wrap"><span aria-hidden="true">AS</span><img class="review-avatar" src="./Image/client4.avif" alt="" loading="lazy"></div>
                 <div class="review-content">
-                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating">★★★★★</div><span class="review-sample">Sample review</span></div>
+                    <div class="review-topline"><div class="stars" role="img" aria-label="Sample five-star rating"><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg></div><span class="review-sample">Sample review</span></div>
                     <blockquote>“Kit में routine के लिए तीन अलग products मिलते हैं, इसलिए मुझे अलग-अलग चीजें ढूंढने की जरूरत नहीं पड़ी। Packaging और usage instructions भी समझने में आसान लगे।”</blockquote>
-                    <div class="review-byline"><p>Amit Singh</p><span class="review-location">● Jaipur</span></div>
+                    <div class="review-byline"><p>Amit Singh</p><span class="review-location"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>Jaipur</span></div>
                     <small class="review-product">DERMOCARE Skin Care Kit</small>
                 </div>
             </article>
@@ -2020,31 +2182,29 @@
 
         <section class="offer section-pad" aria-labelledby="offer-title">
             <div class="offer-copy">
-                <p class="offer-label">🎁 SPECIAL OFFER FOR YOU</p>
-                <h2 id="offer-title">DERMOCARE SKIN CARE KIT पर <em>10% OFF</em></h2>
-                <p class="offer-subtitle">आज अपना order book करें</p>
-                <div class="offer-perks"><span>🎁 10% OFF</span><span>🚚 Free Delivery</span><span>📋 Free Diet
-                        Chart</span><span>📦 Cash on Delivery Available</span><span>🔒 Secure Order Process</span></div>
-                <p class="offer-note">Limited-period promotional offer</p>
-                <a class="button button-dark" href="#order">👉 अभी अपना Order Book करें <span
-                        aria-hidden="true">↘</span></a>
-                <p class="fine-print">COD और delivery उपलब्धता आपके location और order availability पर निर्भर करती है।
-                </p>
+                <p class="offer-label"><svg class="icon" aria-hidden="true"><use href="#icon-gift"></use></svg>SPECIAL OFFER FOR YOU</p>
+                <h2 id="offer-title">DERMOCARE <em>SKIN CARE KIT</em></h2>
+                <p class="offer-subtitle">आज के order पर खास छूट</p>
+            </div>
+            <div class="offer-photo"><img src="./Image/offer.avif" alt="DERMOCARE Skin Care Kit with a 10% offer badge" loading="lazy"></div>
+            <div class="offer-copy">
+                <div class="offer-perks">
+                    <article class="offer-perk"><span class="offer-perk-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gift"></use></svg></span><strong>10% OFF</strong><small>खास छूट</small></article>
+                    <article class="offer-perk"><span class="offer-perk-icon"><svg class="icon" aria-hidden="true"><use href="#icon-truck"></use></svg></span><strong>Free Delivery</strong><small>फ्री डिलीवरी</small></article>
+                    <article class="offer-perk"><span class="offer-perk-icon"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard"></use></svg></span><strong>Free Diet Chart</strong><small>फ्री डाइट चार्ट</small></article>
+                    <article class="offer-perk"><span class="offer-perk-icon"><svg class="icon" aria-hidden="true"><use href="#icon-package"></use></svg></span><strong>Cash on Delivery</strong><small>कैश ऑन डिलीवरी</small></article>
+                    <article class="offer-perk"><span class="offer-perk-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></span><span class="offer-perk-copy"><strong>Secure Order Process</strong><small>आपकी जानकारी सुरक्षित रखी जाती है</small></span></article>
+                </div>
+                <p class="offer-note">Offer availability की पुष्टि order के समय करें।</p>
+                <p class="offer-medical-note">यह product किसी बीमारी के इलाज या guaranteed result का विकल्प नहीं है। त्वचा की समस्या के लिए dermatologist से सलाह लें।</p>
+                <a class="button button-dark" href="#order"><svg class="icon" aria-hidden="true"><use href="#icon-cart"></use></svg>अभी अपना Order Book करें<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+                <p class="fine-print"><svg class="icon" aria-hidden="true"><use href="#icon-truck"></use></svg>COD और delivery उपलब्धता आपके location और order availability पर निर्भर करती है।</p>
             </div>
         </section>
 
-        <section class="final-cta section-pad" aria-labelledby="cta-title">
-            <h2 id="cta-title">अब अपनी त्वचा को छिपाने के बजाय उसकी देखभाल पर ध्यान दें।</h2>
-            <p>सही जानकारी लें।<br>अपनी skin condition को समझें।<br>एक consistent routine अपनाएं।</p>
-            <h3>DERMOCARE SKIN CARE KIT</h3>
-            <strong class="cta-offer">10% OFF + COD AVAILABLE</strong>
-            <a class="button button-primary" href="#order">🟡 अभी अपना Order Book करें <span
-                    aria-hidden="true">↘</span></a>
-            <p class="cta-foot">हमारी team order confirmation के लिए आपसे संपर्क करेगी।</p>
-        </section>
 
         <section class="order section-pad" id="order" aria-labelledby="order-title">
-            <h2 id="order-title">🛒 अपना DERMOCARE KIT ऑर्डर करें</h2>
+            <h2 id="order-title"><svg class="icon" aria-hidden="true"><use href="#icon-cart"></use></svg> अपना DERMOCARE KIT ऑर्डर करें</h2>
             <p class="order-lead">सिर्फ 2 जानकारी भरें</p>
             <form id="order-form" method="post" target="order-response-frame" novalidate>
                 <label for="customer-name">आपका नाम <span>*</span></label>
@@ -2069,12 +2229,11 @@
                 <input type="hidden" name="device_platform">
                 <input type="hidden" name="landing_page">
                 <input type="hidden" name="referrer">
-                <button class="button button-primary submit-button" type="submit"><span class="button-label">🟡 मेरा
-                        Order Book करें</span><span class="button-spinner" aria-hidden="true"></span></button>
+                <button class="button button-primary submit-button" type="submit"><svg class="icon" aria-hidden="true"><use href="#icon-cart"></use></svg><span class="button-label">मेरा Order Book करें</span><span class="button-spinner" aria-hidden="true"></span></button>
                 <p class="form-error" id="form-error" role="alert" hidden></p>
-                <div class="order-perks"><span>✓ COD Available</span><span>✓ Home Delivery</span><span>✓ 10% OFF</span>
+                <div class="order-perks"><span><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>COD Available</span><span><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>Home Delivery</span><span><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>10% OFF</span>
                 </div>
-                <p class="privacy-note">🔒 आपकी जानकारी order processing और confirmation के लिए उपयोग की जाएगी।</p>
+                <p class="privacy-note"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg>आपकी जानकारी order processing और confirmation के लिए उपयोग की जाएगी।</p>
                 <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </form>
         </section>
@@ -2134,14 +2293,14 @@
     </main>
     <dialog class="policy-dialog" id="policy-dialog" aria-labelledby="policy-dialog-title">
         <form method="dialog">
-            <button class="policy-close" type="submit" aria-label="Close policy">×</button>
+            <button class="policy-close" type="submit" aria-label="Close policy"><svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg></button>
         </form>
         <h2 id="policy-dialog-title"></h2>
         <div id="policy-dialog-content"></div>
     </dialog>
     <aside class="sticky-cta" id="sticky-cta" aria-label="DERMOCARE offer" hidden>
         <div class="sticky-offer"><strong>10% OFF</strong><span>Free Delivery · COD</span></div>
-        <a class="sticky-button" href="#order">अभी Order करें <span aria-hidden="true">↗</span></a>
+        <a class="sticky-button" href="#order">अभी Order करें<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
     </aside>
     <iframe name="order-response-frame" id="order-response-frame" title="Order submission response"
         class="visually-hidden-frame"></iframe>
@@ -2264,7 +2423,7 @@
             form.classList.remove("is-loading");
             loadingOverlay.hidden = true;
             document.body.classList.remove("is-form-loading");
-            submitLabel.textContent = "🟡 मेरा Order Book करें";
+            submitLabel.textContent = "मेरा Order Book करें";
         }
 
         phoneInput.addEventListener("input", () => {
